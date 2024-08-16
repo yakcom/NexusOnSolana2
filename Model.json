@@ -1,0 +1,84 @@
+{
+    "Solana":
+    {
+        "Init": [1, 0],
+        "Supply": [10, 0],
+        "Decimal": [10, 0],
+        "Mintable": [5, 0],
+        "Freezable": [5, 0],
+        "FreezeAuthority": [1, 0],
+
+        "Name": [5, 0],
+        "Symbol": [5, 0],
+        "Name.$": [5, 0],
+        "Symbol.$": [5, 0],
+        "Uri": [2, 0],
+        "Fee": [1, 0],
+        "Creators": [2, 0],
+        "Verified": [2, 0],
+        "Share": [2, 0],
+        "Primary": [1, 0],
+        "Mutable": [5, 0],
+        "SelfCreated": [3, 0],
+
+        "Meta": [10, 0],
+        "Image": [10, 0],
+        "Description": [5, 0],
+        "Extensions": [2, 0],
+        "Tags": [5, 4],
+        "Creator": [0, 5],
+        "CreateOn": [10, 0],
+        "ShowName": [1, 0]
+    },
+    "Website":
+    {
+        "Url": [0, 0],
+        "DomainZone": [5, 0],
+        "Protocol": [1, 0],
+        "Www": [1, 0],
+        "Subdomains": [1, 0],
+        "Paths": [1, 0],
+        "Encoding": [5, 0],
+        "Iso": [5, 0],
+        "Headers": [50, 6],
+        "Cookies": [5, 1],
+        "Redirect": [1, 0],
+        "PermRedirect": [1, 0],
+        "Lang": [0, 5],
+        "Page": [1, 1],
+        "Meta": [1, 1],
+        "Og": [1, 1],
+        "Dc": [1, 1],
+        "Twitter": [1, 1],
+        "ContentType": [5, 0],
+        "Viewport": [5, 0],
+        "Descriptions": [5, 0],
+        "OgImageType": [5, 0],
+        "TwitterCard": [5, 0],
+        "Ip": [0, 5],
+        "Whois": [50, 6]
+    },
+    "Telegram":
+    {
+        "Url": [5, 0],
+        "Title.Keywords": [10, 4],
+        "Title.$": [5, 0],
+        "Type": [0, 5],
+        "Description": [5, 0],
+        "PinnedMessage": [1, 0],
+        "ActiveUsernames": [1, 0],
+        "HasVisibleHistory": [1, 0],
+        "CanSendPaidMedia": [1, 0],
+        "ReactionsAvailable": [1, 0],
+        "MaxReactionCount": [5, 0],
+        "AccentColor": [5, 0]
+    },
+    "Twitter":
+    {
+        "Url": [5,0]
+    },
+    "Discord":
+    {
+        "Url": [5,0]
+    }
+}

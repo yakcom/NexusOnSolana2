@@ -1,0 +1,3 @@
+
+def Parse(Token):
+    pass
