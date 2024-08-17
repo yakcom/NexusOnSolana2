@@ -53,8 +53,6 @@ def NewRaydiumPools(Address):
     if Token := Database.RaydiumTokens.get(Address):
         Telegram.Bot.forwardMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'NewRaydiumPools')))
         logger.success(f'Success Raydium Pool {Address}')
-    else:
-        logger.warning(f'Raydium Token {Address} missing from database')
 
 
 def NewPumpfunTokens(Address):
