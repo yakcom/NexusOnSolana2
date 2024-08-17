@@ -22,12 +22,12 @@
         "SelfCreated": [3, 0],
 
         "Meta": [10, 0],
-        "Image": [10, 0],
+        "Image": [0, 5],
         "Description": [5, 0],
         "Extensions": [2, 0],
         "Tags": [5, 4],
         "Creator": [0, 5],
-        "CreateOn": [10, 0],
+        "CreateOn": [0, 5],
         "ShowName": [1, 0]
     },
     "Website":

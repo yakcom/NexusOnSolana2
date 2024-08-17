@@ -32,7 +32,7 @@ def NewRaydiumTokens(Address):
     Parsers.Discord.Parse(Token)
 
     Comparison.Model.Create(Token)
-    Similar = Comparison.Comparator.FindSimilar(Token)
+    Similar = Comparison.Comparator.FindSimilar(Token,Database.RaydiumTokens)
     Comparison.Owner.Set(Token, Similar)
 
     Telegram.Notify.Parse(Token)
@@ -44,15 +44,39 @@ def NewRaydiumTokens(Address):
         Telegram.Bot.forwardMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'NewRaydiumTokensSafe')))
 
     del Token['Data']
-    Database.Save(Token)
+    Database.SaveRaydiumToken(Token)
     logger.success(f'Success Raydium Token {Address}')
 
 
 def NewRaydiumPools(Address):
     logger.info(f'New Raydium Pool {Address}')
-    if Token := Database.Tokens.get(Address):
+    if Token := Database.RaydiumTokens.get(Address):
         Telegram.Bot.forwardMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'NewRaydiumPools')))
         logger.success(f'Success Raydium Pool {Address}')
     else:
         logger.warning(f'Raydium Token {Address} missing from database')
 
+
+def NewPumpfunTokens(Address):
+    logger.info(f'New Pumpfun Token {Address}')
+    Token = {'Address': Address, 'Date': datetime.now(), 'Data': {}}
+
+    if not Parsers.Solana.Parse(Token):return
+    Parsers.Socials.Find(Token)
+    Parsers.Website.Parse(Token)
+    Parsers.Telegram.Parse(Token)
+    Parsers.Twitter.Parse(Token)
+    Parsers.Discord.Parse(Token)
+
+    Comparison.Model.Create(Token)
+    Similar = Comparison.Comparator.FindSimilar(Token, Database.PumpfunTokens)
+    Comparison.Owner.Set(Token, Similar)
+
+    Telegram.Notify.Parse(Token)
+    Telegram.Group.Post(int(Config.Get('Telegram', 'NewPumpfunTokens')), Token)
+
+    #TODO
+
+    del Token['Data']
+    Database.SavePumpfunToken(Token)
+    logger.success(f'Success Pumpfun Token {Address}')

@@ -32,7 +32,7 @@ def Create(Token):
     Model['Solana']['Symbol'] = bool(Metaplex['data']['symbol'].isupper())
     Model['Solana']['Name.$'] = bool('$' in Metaplex['data']['name'])
     Model['Solana']['Symbol.$'] = bool('$' in Metaplex['data']['symbol'])
-    Model['Solana']['Uri'] = str(System.Url.Parse(Metaplex['data']['uri'])['Domain']['Full'])#TODO
+    Model['Solana']['Uri'] = str(System.Url.Parse(Metaplex['data']['uri'])['Domain']['Full']) if System.Url.Parse(Metaplex['data']['uri']) else None
     Model['Solana']['Fee'] = int(Metaplex['data']['seller_fee_basis_points'])
     Model['Solana']['Creators'] = len(Metaplex['data']['creators'])
     Model['Solana']['Verified'] = len(Metaplex['data']['verified'])

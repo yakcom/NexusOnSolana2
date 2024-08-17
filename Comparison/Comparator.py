@@ -1,6 +1,5 @@
 from loguru import logger
 import Comparison.Model
-import Database
 
 def СompareDictionaryesPercentages(x,y):
     All = len(x.keys())
@@ -59,14 +58,14 @@ def CompareModels(Module,module,Model):
 
 
 
-def FindSimilar(Token,Threshold=70):
+def FindSimilar(Token,Tokens,Threshold=70):
     logger.debug(f'Comparison of models for {Token["Address"]}')
 
     Model = Token['Model']
     Similar = {}
 
     if not (Model['Website'] and Model['Telegram']): return {}
-    for address,token in Database.Tokens.items():
+    for address,token in Tokens.items():
         if Token['Address'] == token['Address']:continue
         model = token['Model']
 

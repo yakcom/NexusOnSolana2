@@ -27,7 +27,7 @@ def Start():
             except:return
 
             for Subscription in Subscriptions:
-                if Subscription[1].get(Chat) in ['@SolanaMintsDebug2','@DRBTSolana','@solanapoolsnew','@SolanaPoolsDebug2','@NewToken_Sol']:
+                if Subscription[1].get(Chat) in ['@SolanaMintsDebug2','@DRBTSolana','@DRBTSolanaPF','@solanapoolsnew','@SolanaPoolsDebug2','@NewToken_Sol']:
                     if Address := System.Extract.SolanaAddresses(Message, 0):
                         threading.Thread(target=Subscription[0], args=(Address,)).start()
                 if Subscription[1].get(Chat) in ['@NewPoolSolana']:
