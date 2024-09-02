@@ -1,3 +1,5 @@
+import os.path
+
 from telethon.sync import TelegramClient, events
 from loguru import logger
 import asyncio,threading
@@ -12,7 +14,7 @@ def Start():
     async def Start():
         Id = Config.Get("Telethon", "Id")
         Hash = Config.Get("Telethon", "Hash")
-        Telethon = TelegramClient('Telethon/Account', Id, Hash)
+        Telethon = TelegramClient(os.path.join('Telethon','Account'), Id, Hash)
         await Telethon.start()
 
         global Subscriptions

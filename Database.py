@@ -19,18 +19,18 @@ def Saves(Token, Directory):
 
 def Load():
     global RaydiumTokens,PumpfunTokens
-    RaydiumTokens = Loads('Database\Raydium')
-    PumpfunTokens = Loads('Database\Pumpfun')
+    RaydiumTokens = Loads(os.path.join('Database','Raydium'))
+    PumpfunTokens = Loads(os.path.join('Database','Pumpfun'))
     logger.debug('Database loaded successfully')
 
 def SaveRaydiumToken(Token):
     RaydiumTokens[Token['Address']] = Token
-    Saves(Token, 'Database\Raydium')
+    Saves(Token, os.path.join('Database','Raydium'))
     logger.debug(f'Raydium token saved {Token["Address"]}')
 
 def SavePumpfunToken(Token):
     PumpfunTokens[Token['Address']] = Token
-    Saves(Token, 'Database\Pumpfun')
+    Saves(Token, os.path.join('Database','Pumpfun'))
     logger.debug(f'Pumpfun token saved {Token["Address"]}')
 
 

@@ -2,8 +2,8 @@ from loguru import logger
 import Telegram.Bot
 import Telegram.General
 import Telegram.Topic
-import System.Url,os
-import Config
+import System.Url
+import Config,os
 
 
 def Post(Topic,Token):
@@ -124,10 +124,10 @@ def Parse(Token):
 
 def GetPreview(Token):
     File = f'{Token["Address"]}.png'
-    return File if os.path.isfile(f'Previews/{File}') else None
+    return File if os.path.isfile(os.path.join('Previews',f'{File}')) else None
 
 def SendPost(Topic,Message,Preview,Keyboard=None):
-    if Preview:return Telegram.Bot.sendPhoto(Topic, f'Previews/{Preview}', Message, Keyboard)
+    if Preview:return Telegram.Bot.sendPhoto(Topic, os.path.join('Previews',f'{Preview}'), Message, Keyboard)
     else:return Telegram.Bot.sendMessage(Topic, Message, Keyboard)
 
 

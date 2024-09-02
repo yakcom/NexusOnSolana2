@@ -1,3 +1,4 @@
+import os
 from io import BytesIO
 import requests,PIL
 
@@ -8,5 +9,5 @@ def Preview(Token):
             if Response.status_code == 200:
                 ImageFile = PIL.Image.open(BytesIO(Response.content))
                 ResizedImage = ImageFile.resize((1080, 1080))
-                ResizedImage.save(f'Previews/{Token["Address"]}.png')
+                ResizedImage.save(os.path.join('Previews',f'{Token["Address"]}.png'))
     except:pass
