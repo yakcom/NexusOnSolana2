@@ -37,7 +37,15 @@ def createAndClose(Name):
     closeForumTopic(TopicId)
     return TopicId
 
-def forwardMessage(MessageFrom, TopicTo):
+def forwardMessage(MessageFrom, ChatId):
+    Data = {
+        'chat_id': ChatId,
+        'from_chat_id': Chat,
+        'message_id': MessageFrom
+    }
+    return Request('forwardMessage', Data)
+
+def forwardTopicMessage(MessageFrom, TopicTo):
     Data = {
         'chat_id': Chat,
         'message_thread_id':TopicTo,

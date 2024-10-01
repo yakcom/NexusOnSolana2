@@ -39,9 +39,11 @@ def NewRaydiumTokens(Address):
     Telegram.Group.Post(int(Config.Get('Telegram','NewRaydiumTokens')),Token)
 
     if Token['Notify']['Similar'] and not Token.get('Duplicate'):
-        Telegram.Bot.forwardMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'NewRaydiumTokensWithHistory')))
+        Telegram.Bot.forwardTopicMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'NewRaydiumTokensWithHistory')))
     if Token['Notify']['Safe']:
-        Telegram.Bot.forwardMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'NewRaydiumTokensSafe')))
+        Telegram.Bot.forwardTopicMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'NewRaydiumTokensSafe')))
+    if Token['Owner']['Id'] == 16563:
+        Telegram.Bot.forwardMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'GoldChannel')))
 
     del Token['Data']
     Database.SaveRaydiumToken(Token)
@@ -51,7 +53,7 @@ def NewRaydiumTokens(Address):
 def NewRaydiumPools(Address):
     logger.info(f'New Raydium Pool {Address}')
     if Token := Database.RaydiumTokens.get(Address):
-        Telegram.Bot.forwardMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'NewRaydiumPools')))
+        Telegram.Bot.forwardTopicMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'NewRaydiumPools')))
         logger.success(f'Success Raydium Pool {Address}')
 
 
