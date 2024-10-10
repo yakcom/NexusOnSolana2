@@ -44,9 +44,10 @@ def GetMetaplex(Address):
 def GetMetadata(Address):
     Error = None
     logger.trace(f'Get metadata for {Address}')
-    for a in range(3):
-        url = get_metadata(Solana, Address)['data']['uri']
-        try:return requests.get(url).json()
+    for a in range(5):
+        try:
+            url = get_metadata(Solana, Address)['data']['uri']
+            return requests.get(url).json()
         except Exception as e:Error=e
         time.sleep(1)
     logger.warning(f'{Address} Get metadata error {Error}')
