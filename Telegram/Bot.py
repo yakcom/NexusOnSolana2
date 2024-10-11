@@ -19,8 +19,11 @@ def Request(Method,Data=None,Files=None):
     if not Token:raise Exception('Telegram is not initialized !')
     return requests.post(f'https://{Url}/bot{Token}/{Method}', data=Data,files=Files).json()
 
-def createForumTopic(Name):
-    Data = {'chat_id': Chat, 'name': Name}
+def getForumTopicIconStickers():
+    return Request('getForumTopicIconStickers')
+
+def createForumTopic(Name,Icon=None):
+    Data = {'chat_id': Chat, 'name': Name,'icon_custom_emoji_id':Icon}
     return Request('createForumTopic',Data)
 
 def closeForumTopic(Thread):
@@ -31,8 +34,8 @@ def editForumTopic(TopicId, Name):
     Data = {'chat_id': Chat, 'message_thread_id': TopicId, 'name':Name}
     return Request('editForumTopic', Data)
 
-def createAndClose(Name):
-    Topic = createForumTopic(Name)
+def createAndClose(Name,Icon=None):
+    Topic = createForumTopic(Name,Icon)
     TopicId = Topic['result']['message_thread_id']
     closeForumTopic(TopicId)
     return TopicId
