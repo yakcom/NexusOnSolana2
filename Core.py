@@ -19,7 +19,6 @@ import Comparison.Model
 import Comparison.Comparator
 import Comparison.Owner
 
-
 def NewTokens(Address):
     logger.info(f'New Raydium Token {Address}')
 
