@@ -8,7 +8,7 @@ import sys
 
 logger.remove()
 logger.add(sys.stderr, level="TRACE")
-logger.info('Nexus On Solana')
+logger.info('Nexus On Solana Raydium')
 
 Config.Load()
 Database.Load()

@@ -35,7 +35,7 @@ def CreateTokenBar(Info):
             f'<a href="https://solscan.io/token/{Info["Owner"]}#metadata"><b>Sources</b></a>\n'
             f'<b>┌ Storage: </b><i>{Info["Uri"]}</i>\n'
             f'<b>├ Creator: </b><i><a href="{Info["CreatorUrl"]}">{Info["CreatorName"]}</a></i>\n'
-            f'<b>└ Dex: </b><i><a href="https://raydium.io/">{Config.Get("Nexus","Dex")}</a></i>'
+            f'<b>└ Dex: </b><i><a href="https://raydium.io/">Raydium</a></i>'
             f'</blockquote>\n')
 
 def CreateNotifyBar(Info):
