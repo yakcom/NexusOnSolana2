@@ -12,10 +12,10 @@ def GetTokenInfo(address):
 
 def GetDailyTokens(day,history=False):
     daily = []
-    for token in Database.RaydiumTokens:
-        if Database.RaydiumTokens[token]['Date'].date() == datetime.now().date()-timedelta(days=-1*day):
-            if not history or Database.RaydiumTokens[token]['Owner'].get('Similarity'):
-                daily.append(Database.RaydiumTokens[token])
+    for token in Database.Tokens:
+        if Database.Tokens[token]['Date'].date() == datetime.now().date()-timedelta(days=-1*day):
+            if not history or Database.Tokens[token]['Owner'].get('Similarity'):
+                daily.append(Database.Tokens[token])
     return daily
 
 def ShowBestOfDay(day=-1):

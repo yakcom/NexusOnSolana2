@@ -1,37 +1,20 @@
 from loguru import logger
 import os,pickle
 
-RaydiumTokens = {}
-PumpfunTokens = {}
+Tokens = {}
 
-def Loads(Directory):
-    Tokens = {}
-    for Address in os.listdir(Directory):
-        TokenPath = os.path.join(Directory, Address)
-        with open(TokenPath, 'rb') as TokenFile:
-            Tokens[Address] = pickle.load(TokenFile)
-    return Tokens
-
-def Saves(Token, Directory):
-    TokenPath = os.path.join(Directory, Token['Address'])
-    with open(TokenPath, 'wb') as TokenFile:
-        pickle.dump(Token, TokenFile)
-
-def Load():
-    global RaydiumTokens,PumpfunTokens
-    RaydiumTokens = Loads(os.path.join('Database','Raydium'))
-    PumpfunTokens = Loads(os.path.join('Database','Pumpfun'))
+def Load(dir='Database'):
+    global Tokens
+    for address in os.listdir(dir):
+        with open(os.path.join(dir, address), 'rb') as file:
+            Tokens[address] = pickle.load(file)
     logger.debug('Database loaded successfully')
 
-def SaveRaydiumToken(Token):
-    RaydiumTokens[Token['Address']] = Token
-    Saves(Token, os.path.join('Database','Raydium'))
-    logger.debug(f'Raydium token saved {Token["Address"]}')
-
-def SavePumpfunToken(Token):
-    PumpfunTokens[Token['Address']] = Token
-    Saves(Token, os.path.join('Database','Pumpfun'))
-    logger.debug(f'Pumpfun token saved {Token["Address"]}')
+def Save(Token,dir='Database'):
+    global Tokens
+    with open(os.path.join(dir, Token['Address']), 'wb') as file:
+        pickle.dump(Token, file)
+    logger.debug(f'Token saved {Token["Address"]}')
 
 
 

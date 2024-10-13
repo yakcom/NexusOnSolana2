@@ -1,8 +1,14 @@
 import Comparison.Comparator
+import Config
 import Database
 import json
 import requests
 import Comparison.Comparator
+
+Config.Load()
+
+x = Config.Get('Nexus','ForwardToTokensSafe')
+
 
 Database.Load()
 x= Database.Tokens

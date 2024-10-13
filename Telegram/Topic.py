@@ -32,7 +32,7 @@ def CreateHeaderBar(Info):
 
 def CreateNotifyBar(Info):
     Notify=[]
-    if Info['Duplicate']: Notify.append(f'<blockquote><b>⚠️  <a href="https://t.me/c/{Telegram.Bot.Group}/{Config.Get("Telegram","NewRaydiumTokens")}/{Info["Duplicate"]}">Such token already exists</a></b></blockquote>')
+    if Info['Duplicate']: Notify.append(f'<blockquote><b>⚠️  <a href="https://t.me/c/{Telegram.Bot.Group}/{Config.Get("Telegram","NewTokens")}/{Info["Duplicate"]}">Such token already exists</a></b></blockquote>')
     if Info['Freezable']: Notify.append('<blockquote><b>⛔️  Token sale is not possible</b></blockquote>')
     if Info['Mintable']: Notify.append('<blockquote><b>⚠️  Developer can mint more</b></blockquote>')
     if Info['Mutable']: Notify.append('<blockquote><b>⚠️  Developer can change token</b></blockquote>')
