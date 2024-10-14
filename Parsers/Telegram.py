@@ -1,7 +1,7 @@
 from loguru import logger
 import requests
 
-Api = 'bot6377109517:AAHiyei8tCSDeryt6LaLJU893rb9dvdh4gA'
+Api = 'bot6409923201:AAH8UXDC1HWyJGn91_USD80wLjuXY0RUx9w'
 
 def Parse(Token):
 
