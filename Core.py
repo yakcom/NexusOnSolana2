@@ -42,7 +42,7 @@ def NewTokens(Address):
         Telegram.Bot.forwardTopicMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'NewTokensWithHistory')))
     if Token['Notify']['Safe']:
         Telegram.Bot.forwardTopicMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'NewTokensSafe')))
-    if Token['Owner']['Id'] == 16563:
+    if Token['Owner']['Id'] == 16563 or Token['Owner']['Id'] == 140539:
         Telegram.Bot.forwardMessage(Token['GeneralPostId'], int(Config.Get('Telegram', 'GoldChannel')))
 
     del Token['Data']
